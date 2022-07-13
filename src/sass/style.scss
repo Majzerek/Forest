@@ -1,0 +1,406 @@
+@use './colors' as c;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: c.$main-color;
+}
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+.section {
+	padding: 1em;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.title {
+	margin: 1em auto 0em;
+	padding: 1em;
+	font-size: 1.8rem;
+	text-transform: uppercase;
+	h2 {
+		font-weight: 400;
+	}
+}
+//nav
+.burger-btn {
+	position: absolute;
+	position: fixed;
+	top: 2%;
+	left: 65%;
+	display: block;
+	width: 10%;
+	height: 10%;
+	z-index: 1;
+	background-color: transparent;
+	border: none;
+	&__bars {
+		color: #fff;
+	}
+}
+.logo {
+	font-size: 3rem;
+	color: c.$black-text;
+}
+.nav {
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	display: none;
+	z-index: 10;
+	background-color: c.$main-color;
+	&__logo {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-left: 10%;
+	}
+	&__items {
+		margin-right: -30%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+	&__item {
+		padding: 0.5em;
+		height: 100%;
+		font-size: 2rem;
+		text-decoration: none;
+		color: c.$black-text;
+		cursor: pointer;
+		transition: background-color 0.3, color 0.3s;
+	}
+	&__item:hover {
+		background-color: c.$nav-hover;
+		color: c.$main-color;
+	}
+}
+//header
+.header {
+	flex-direction: column;
+	text-align: left;
+	height: 400px;
+	background-image: url('/dist/img/hero-small.jpg');
+	background-position: center;
+	background-position-y: 80%;
+	background-size: cover;
+	color: c.$main-color;
+	z-index: 0;
+	&__box {
+		margin-left: 1em;
+		&-text {
+			font-size: 1.6rem;
+		}
+
+		&-heading {
+			font-size: 2rem;
+			font-weight: 600;
+		}
+		&-shadow {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: rgba(0, 0, 0, 0.64);
+			height: 100%;
+			width: 100%;
+			z-index: -2;
+		}
+	}
+}
+//page Contact
+.contact {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+}
+//main
+.aboutus {
+	flex-direction: column;
+	width: 100%;
+	&__box {
+		display: flex;
+		justify-content: center;
+		width: 80%;
+		img {
+			padding: 2em;
+			width: 60%;
+			height: 40%;
+			min-width: 300px;
+			min-height: 200px;
+		}
+		&-text {
+			padding: 3em;
+			grid-column: 2/3;
+			width: 60%;
+			height: 40%;
+			h3 {
+				margin-bottom: 0.5em;
+				font-size: 1.5rem;
+				font-weight: 600;
+			}
+			p {
+				font-size: 1.3rem;
+			}
+		}
+	}
+}
+.family {
+	margin-top: 3em;
+	height: 300px;
+	background-image: url('/dist/img/section-small.jpg');
+	background-size: cover;
+	background-position: center;
+	z-index: 0;
+	h2 {
+		padding: 1em;
+		width: 40%;
+		text-align: center;
+		color: c.$main-color;
+		border: 1px solid white;
+	}
+	&__shadow {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background-color: rgba(0, 0, 0, 0.44);
+		height: 100%;
+		width: 100%;
+		z-index: -2;
+	}
+}
+//offers
+.offers {
+	margin-top: 0.2em;
+	padding: 1em;
+	flex-direction: column;
+	text-align: center;
+	&__title {
+		display: flex;
+		flex-direction: column;
+		&-text {
+			margin-bottom: 1em;
+			padding: 0.5em;
+			font-size: 1.6rem;
+		}
+	}
+	&__cards {
+		display: flex;
+		justify-content: center;
+		height: 100%;
+		align-items: center;
+		flex-wrap: wrap;
+		&-btn {
+			margin-top: 2em;
+			padding: 1em auto;
+			border: none;
+			height: 25px;
+			width: 70%;
+			color: c.$footer-text;
+			box-shadow: 2px 2px 5px grey;
+			border-radius: 3px;
+			background-color: c.$main-color;
+
+			transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+		}
+		&-btn:hover {
+			color: c.$black-text;
+			background-color: c.$hover-color;
+			box-shadow: 0 0 10px c.$hover-color;
+			cursor: pointer;
+		}
+		.active {
+			color: c.$black-text;
+			background-color: c.$hover-color;
+		}
+		&-card {
+			width: 210px;
+			height: 100%;
+			min-height: 270px;
+			margin: .2em 2em;
+			padding: 1em;
+			border: 1px solid c.$footer-bg;
+			background-color: c.$main-color;
+			box-shadow: 1px 1px 5px grey;
+			border-radius: 5px;
+			transition: transform 0.5s;
+			
+			h2 {
+				padding: 0.5em;
+				margin-bottom: 0.1em;
+				font-weight: 400;
+				font-size: 2rem;
+				font-weight: 500;
+			}
+			h3 {
+				margin-bottom: 0.5em;
+				padding: 0.1em;
+				font-size: 3rem;
+			}
+			.option {
+				padding: 0;
+				margin: 0;
+				font-size: 1.4rem;
+			}
+		}
+		&-card:hover {
+			transform: scale(1.3);
+			z-index: 2;
+		}
+	}
+}
+
+// footer
+.footer {
+	position: relative;
+	background-color: c.$footer-bg;
+	&__hide{
+		display: none;
+	}
+	&__container {
+		display: flex;
+		justify-content: space-evenly;
+		align-items: center;
+		&-bars {
+			display: flex;
+			justify-content: center;
+			align-items: start;
+			text-align-last: left;
+		}
+		
+		&-bar{
+			padding: 1em;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			text-align: left;
+			font-size: 2rem;
+			h3 {
+				padding-bottom: .5em;
+				font-weight: 500;
+			}
+			a{
+				padding: 0.5em;
+				font-size: 1.2rem;
+				text-align: left;
+				text-decoration: none;
+				color: c.$footer-text;
+				transition: color .3s;
+			}
+			a:hover {
+				color: c.$black-text;
+			}
+
+		}
+	}
+	&__logo {
+		margin-bottom: 1em;
+		padding: 1em;
+		display: flex;
+	}
+
+	&__bottom {
+		margin: 0.2em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 1.5rem;
+	}
+}
+//Media
+@media (min-width: 576) {
+	.nav {
+		display: none;
+
+	}
+	
+
+}
+@media (min-width: 768px) {
+	.nav {
+		display: block;
+	}
+	.burger-btn {
+		display: none;
+	}
+	.header {
+		background-image: url('/dist/img/hero-big.jpg');
+		&__box {
+			&-text {
+				font-size: 3rem;
+			}
+			&-heading {
+				font-size: 5rem;
+				font-weight: 500;
+			}
+		}
+		
+		
+	}
+	
+	.aboutus {
+		h3 {
+			font-size: 3rem;
+		}
+		p {
+			font-size: 2rem;
+		}
+	}
+	.footer {
+		&__hide{
+			display: block;
+	}
+	}
+	
+}
+@media (min-width: 992px) {
+	.header {
+		background-image: url('/dist/img/hero-big.jpg');
+		&__box {
+			&-text {
+				font-size: 3rem;
+			}
+			&-heading {
+				font-size: 5rem;
+				font-weight: 500;
+			}
+		}
+	}
+	.title {
+		font-size: 4rem;
+	}
+	.offers {
+		&__title-text {
+			font-size: 4rem;
+		}
+	}
+	.aboutus {
+		h3 {
+			font-size: 4rem;
+		}
+		p {
+			font-size: 2.2rem;
+		}
+	}
+
+	.family {
+		background-image: url('/dist/img/section-big.jpg');
+	}
+}
