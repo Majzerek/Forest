@@ -240,28 +240,53 @@ body {
 		height: 100%;
 		align-items: center;
 		flex-wrap: wrap;
-		&-btn {
-			margin-top: 2em;
-			padding: 1em auto;
-			border: none;
-			height: 25px;
-			width: 70%;
-			color: c.$footer-text;
+		button {
+			position: relative;
+			margin: 2em;
+			padding: 1em 1em;
+			background: none;
 			box-shadow: 2px 2px 5px grey;
-			border-radius: 3px;
-			background-color: c.$main-color;
-			transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
-		}
-		&-btn:hover {
+			border-radius: 9px;
+			border: 1px solid c.$black-text;
 			color: c.$black-text;
-			background-color: c.$hover-color;
-			box-shadow: 0 0 10px c.$hover-color;
+			background-color: c.$hover-color-l;
+			font-size: 1.5rem;
+			text-transform: uppercase;
 			cursor: pointer;
+			overflow: hidden;
 		}
+		
+		button::before,
+		button::after {
+			display: block;
+			position: absolute;
+			content: '';
+			transition: all 0.5s;
+			z-index: -1;
+		}
+	
 		.lighted {
 			color: c.$black-text;
 			background-color: c.$hover-color;
 		}
+		.glass::before {
+			top: -30px;
+			left: -130px;
+			height: 160%;
+			width: 100px;
+			background-image: linear-gradient(
+				-90deg,
+				rgba(255, 255, 255, 0.3),
+				rgba(191, 18, 18, 0)
+			);
+			transform: rotate(20deg);
+		}
+		
+		.glass:hover::before {
+			left: 130%;
+			z-index: 4;
+		}
+		
 		&-card {
 			width: 210px;
 			height: 100%;
@@ -314,6 +339,75 @@ body {
 			z-index: 2;
 		}
 	}
+	.next {
+		font-size: 2.5rem;
+		button {
+			position: relative;
+			margin: .5em;
+			padding: 1em 1em;
+			background: none;
+			
+			border: 1px solid transparent;
+			color: c.$black-text;
+			background-color: transparent;
+			font-size: 1.5rem;
+			text-transform: uppercase;
+			cursor: pointer;
+			overflow: hidden;
+		}
+		
+		button::before,
+		button::after {
+			display: block;
+			position: absolute;
+			content: '';
+			transition: all 0.5s;
+			z-index: -1;
+		}
+		.border {
+			border-radius: 0;
+			overflow: visible;
+			transition: 0.8s;
+			a {
+				font-size: 2rem;
+				text-decoration: none;
+				color: c.$hover-color;
+			}
+		}
+		
+		.border::after,
+		.border::before {
+			width: 100%;
+			height: 100%;
+		}
+		.border::after {
+			bottom: 0;
+			right: 0;
+		}
+		.border::before {
+			top: 0;
+			left: 0;
+		}
+		.border:hover {
+			border: 1px solid transparent;
+			color: c.$black-text;
+		}
+		
+		.border:hover::after {
+			bottom: -10px;
+			right: -10px;
+			border-bottom: 5px solid c.$black-text;
+			border-right: 5px solid c.$black-text;
+		}
+		
+		.border:hover::before {
+			top: -10px;
+			left: -10px;
+			border-top: 5px solid c.$black-text;
+			border-left: 5px solid c.$black-text;
+		}
+		
+	}
 }
 
 // footer
@@ -358,6 +452,7 @@ body {
 			a:hover {
 				color: c.$black-text;
 			}
+			
 		}
 	}
 	&__logo {
