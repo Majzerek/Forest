@@ -159,13 +159,7 @@ body {
 		}
 	}
 }
-//page Contact
-.contact {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 90vh;
-}
+
 //main
 .aboutus {
 	flex-direction: column;
@@ -227,6 +221,7 @@ body {
 //offers
 .offers {
 	margin-top: 0.2em;
+	margin-bottom: 2em;
 	padding: 1em;
 	flex-direction: column;
 	text-align: center;
@@ -291,10 +286,27 @@ body {
 				padding: 0.1em;
 				font-size: 3rem;
 			}
+
 			.option {
 				padding: 0;
 				margin: 0;
 				font-size: 1.4rem;
+				.ti-letter-v {
+					padding: 0.5em;
+					color: c.$hover-color;
+				}
+				.ti-minus {
+					margin-right: 0.6em;
+					padding: 0.5em;
+					color: red;
+				}
+			}
+			.option-minus {
+				color: grey;
+				font-size: 1.3rem;
+				span {
+					text-decoration: line-through;
+				}
 			}
 		}
 		&-card:hover {
@@ -306,6 +318,7 @@ body {
 
 // footer
 .footer {
+	margin-top: 5em;
 	position: relative;
 	background-color: c.$footer-bg;
 	z-index: 0;
@@ -361,6 +374,44 @@ body {
 		font-size: 1.5rem;
 	}
 }
+//page Contact
+.contact-bg {
+	width: 100%;
+	height: 400px;
+	background-image: url('../img/contact-small.jpg');
+	background-size: cover;
+	background-position: center;
+}
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&-items {
+		font-size: 2rem;
+	}
+	&-item {
+		.icon {
+			padding: 1em;
+		}
+		span {
+			font-weight: bold;
+		}
+		a {
+			color: c.$contact;
+			text-decoration: none;
+			cursor: pointer;
+			transition: color 0.3s, border .3s .2s;
+		}
+	
+
+		a:hover {
+			color: c.$hover-color;
+			border-bottom: 1px solid c.$hover-color;
+		}
+	}
+}
+
 //Media
 @media (min-width: 576) {
 	.nav {
@@ -403,7 +454,7 @@ body {
 }
 @media (min-width: 992px) {
 	.header {
-		background-image:url('../img/hero-big.jpg');
+		background-image: url('../img/hero-big.jpg');
 		&__box {
 			&-text {
 				font-size: 3rem;
@@ -414,6 +465,7 @@ body {
 			}
 		}
 	}
+
 	.title {
 		font-size: 4rem;
 	}
@@ -433,5 +485,8 @@ body {
 
 	.family {
 		background-image: url('../img/section-big.jpg');
+	}
+	.contact-bg {
+		background-image: url('../img/contact-big.jpg');
 	}
 }
