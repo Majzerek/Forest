@@ -503,17 +503,7 @@ body {
 		span {
 			font-weight: bold;
 		}
-		a {
-			color: c.$contact;
-			text-decoration: none;
-			cursor: pointer;
-			transition: color 0.3s, border 0.3s 0.2s;
-		}
-
-		a:hover {
-			color: c.$hover-color;
-			border-bottom: 1px solid c.$hover-color;
-		}
+	
 	}
 }
 
