@@ -131,7 +131,7 @@ body {
 	flex-direction: column;
 	text-align: left;
 	height: 400px;
-	background-image: url('/dist/img/hero-small.jpg');
+	background-image: url('./dist/img/hero-small.jpg');
 	background-position: center;
 	background-position-y: 80%;
 	background-size: cover;
@@ -202,7 +202,7 @@ body {
 .family {
 	margin-top: 3em;
 	height: 300px;
-	background-image: url('/dist/img/section-small.jpg');
+	background-image: url('./dist/img/section-small.jpg');
 	background-size: cover;
 	background-position: center;
 	z-index: 0;
@@ -375,7 +375,7 @@ body {
 		display: none;
 	}
 	.header {
-		background-image: url('/dist/img/hero-big.jpg');
+		background-image: url('./dist/img/hero-big.jpg');
 		&__box {
 			&-text {
 				font-size: 3rem;
@@ -403,7 +403,7 @@ body {
 }
 @media (min-width: 992px) {
 	.header {
-		background-image: url('/dist/img/hero-big.jpg');
+		background-image: url('./dist/img/hero-big.jpg');
 		&__box {
 			&-text {
 				font-size: 3rem;
@@ -432,6 +432,6 @@ body {
 	}
 
 	.family {
-		background-image: url('/dist/img/section-big.jpg');
+		background-image: url('./dist/img/section-big.jpg');
 	}
 }
