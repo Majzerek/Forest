@@ -31,6 +31,7 @@ body {
 	padding: 1em;
 	font-size: 1.8rem;
 	text-transform: uppercase;
+
 	h2 {
 		font-weight: 400;
 	}
@@ -40,7 +41,7 @@ body {
 	position: absolute;
 	position: fixed;
 	top: 0;
-	left: 75%;
+	left: 70%;
 	display: block;
 	background-color: transparent;
 	border: none;
@@ -496,12 +497,14 @@ body {
 		font-weight: 500;
 	}
 	&-items {
+		margin: 1em;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 800px;
-		height: 400px;
+		width: 100%;
+		max-width: 900px;
+		height: 40%;
 		font-size: 2rem;
 		border-radius: 5px;
 		background-color: c.$footer-bg;
@@ -519,8 +522,8 @@ body {
 }
 // contact - form
 form {
-	margin-top: 2em;
-	padding: 2em;
+	margin: .5em;
+	padding: .5em;
 	font-size: 2rem;
 	border-radius: 5px;
 	background-color: c.$footer-bg;
@@ -630,6 +633,14 @@ form {
 @media (min-width: 576) {
 	.nav {
 		display: none;
+	}
+	.wrapper {
+		width: 100%;
+	}
+	.contact {
+		&-items {
+			width: 300px;
+		}
 	}
 }
 @media (min-width: 768px) {
