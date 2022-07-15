@@ -1,7 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+
 const footerYear = document.querySelector('#footer-year')
 const hamburgerBtn = document.querySelector('.ti-menu-2')
 const navMobile = document.querySelector('.nav-mobile')
 const navItems = document.querySelectorAll('.nav__item')
+const nav = document.querySelector('.nav__items')
 const userName = document.querySelector('#username');
 const email = document.querySelector('#email');
 const btnClear = document.querySelector('.clear');
@@ -18,7 +22,13 @@ const btnNav = document.querySelector('.burger-btn__bars')
 const handleNav = () => {
 	navMobile.classList.toggle('active')
     hamburgerBtn.classList.toggle('black-bars-color')
-    navItems.addEventListener('click', handleNav)
+    navItems.forEach(item => {
+        item.addEventListener('click', ()=> {
+            navMobile.classList.remove('active')
+            hamburgerBtn.classList.remove('black-bars-color')
+        })
+})
+   
 }
 
 const handleCurrentYear = () => {
@@ -28,7 +38,6 @@ const handleCurrentYear = () => {
 
 const sauron = () => {
     const currentSection = window.scrollY;
-    console.log(currentSection);
 
     allSection.forEach(section => {
         if(section.classList.contains('white-section') && section.offsetTop <= currentSection + 60) {
@@ -38,91 +47,102 @@ const sauron = () => {
         }
     })
 }
+const sauronDesktop = ()=> {
+    const currentSection = window.scrollY;
+    allSection.forEach(section => {
+        if(section.classList.contains('#')) {
+            navItems.classList.add('nav-black')
+        }
+    })
+}
+
 handleCurrentYear();
 hamburgerBtn.addEventListener('click', handleNav)
 window.addEventListener('scroll', sauron)
+window.addEventListener('scroll', sauronDesktop)
 
-// const showError = (input,msg) => {
+const showError = (input,msg) => {
     
-//     const formBox = input.parentElement;
-//     const errorMsg = formBox.querySelector('.error-text');
+    const formBox = input.parentElement;
+    const errorMsg = formBox.querySelector('.error-text');
 
-//     formBox.classList.add('error');
-//     errorMsg.textContent = msg;
-// }
+    formBox.classList.add('error');
+    errorMsg.textContent = msg;
+}
 
-// const clearError = input => {
-//     const formBox = input.parentElement;
-//     formBox.classList.remove('error')
-// }
-
-
-// const checkForm = input => {
-//     input.forEach( el => {
-//         if(el.value === ''){
-//             showError(el, el.placeholder)
-//         } else {
-//            clearError(el)
-//         }
-//     })
-// }
-
-// const checkLength = (input, min) => {
-
-//     if(input.value < min) {
-//         showError(input, `${input.previousElementSibling.innerText.slice(0, -1)} musi zawierać min.${min} znaków`)
-//     }
-// }
+const clearError = input => {
+    const formBox = input.parentElement;
+    formBox.classList.remove('error')
+}
 
 
+const checkForm = input => {
+    input.forEach( el => {
+        if(el.value === ''){
+            showError(el, el.placeholder)
+        } else {
+           clearError(el)
+        }
+    })
+}
 
-// const checkMail = email => {
+const checkLength = (input, min) => {
+
+    if(input.value < min) {
+        showError(input, `${input.previousElementSibling.innerText.slice(0, -1)} musi zawierać min.${min} znaków`)
+    }
+}
+
+
+
+const checkMail = email => {
         
-//         const re =    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const re =    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         
-//         if(re.test(email.value)) {
-//             clearError(email)
-//         } else {
-//             showError(email, 'E-mail jest niepoprawny')
-//         }
+        if(re.test(email.value)) {
+            clearError(email)
+        } else {
+            showError(email, 'E-mail jest niepoprawny')
+        }
       
-// }
+}
 
-// const checkErrors = () => {
-//     const allInputs = document.querySelectorAll('.form-box');
-//     let errorCount = 0
+const checkErrors = () => {
+    const allInputs = document.querySelectorAll('.form-box');
+    let errorCount = 0
 
-//     allInputs.forEach(el => {
-//         if(el.classList.contains('error')) {
-//             errorCount ++;
-//         }
-//     })
-//     if(errorCount === 0) {
-//         popup.classList.add('show-popup')
-//     }
-// }
+    allInputs.forEach(el => {
+        if(el.classList.contains('error')) {
+            errorCount ++;
+        }
+    })
+    if(errorCount === 0) {
+        popup.classList.add('show-popup')
+    }
+}
 
-// btnSend.addEventListener('click', e => {
-//     e.preventDefault()
+btnSend.addEventListener('click', e => {
+    e.preventDefault()
 
-//     checkForm([userName, email])
-//     checkLength(userName, 3)
-//     checkMail(email)
-//     checkErrors();
-// })
+    checkForm([userName, email])
+    checkLength(userName, 3)
+    checkMail(email)
+    checkErrors();
+})
 
-// btnClear.addEventListener('click', (e) => {
-// 	e.preventDefault();
-// 	[userName, email].forEach((el) => {
-// 		el.value = '';
-//         clearError(el)
-// 	});
-// });
-
-
+btnClear.addEventListener('click', (e) => {
+	e.preventDefault();
+	[userName, email].forEach((el) => {
+		el.value = '';
+        clearError(el)
+	});
+});
 
 
 
 
 
 
+
+
+})

@@ -54,12 +54,15 @@ body {
 		color: #fff;
 		transition: transform 0.3s;
 		i {
-			padding: 2em;
+			padding: 1em;
 		}
 	}
 
 	&__bars:hover {
-		transform: scale(1.2) rotate(90deg);
+		transform:rotate(90deg);
+	}
+	&__bars::after {
+		transform: rotate(0);
 	}
 }
 .nav-mobile {
@@ -141,6 +144,13 @@ body {
 .black-bars-color::before {
 	color: #333;
 }
+.nav-black,
+.nav-black::after,
+.nav-black::before {
+	background-color: c.$nav-hover;
+		color: c.$main-color;
+}
+
 //header
 .header {
 	flex-direction: column;
@@ -622,11 +632,13 @@ form {
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
+	text-align: center;
 	position: absolute;
-	top: -300px;
+	top: -400px;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	width: 600px;
+	width: 90%;
+	max-width: 600px;
 	height: 200px;
 	background-color: c.$main-color;
 	border-radius: 8px;
@@ -635,15 +647,17 @@ form {
 }
 
 .popup p {
+	margin-top: 1em;
 	font-size: 2.8rem;
 }
 
 .popup .close {
-	margin-top: 2em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
 .show-popup {
-	top: 130%;
+	top: 900px;
 }
 
 //Media
@@ -659,6 +673,7 @@ form {
 			width: 300px;
 		}
 	}
+	
 }
 @media (min-width: 768px) {
 	.nav {
