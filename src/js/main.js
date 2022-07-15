@@ -9,6 +9,23 @@ const btnSend = document.querySelector('.send');
 const btnClose = document.querySelector('.close');
 const popup = document.querySelector('.popup');
 
+
+
+const handleNav = () => {
+	navMobile.classList.toggle('active')
+}
+const hideNav = () => {
+	navItems.forEach.addEventListener('click', handleNav)
+}
+
+const handleCurrentYear = () => {
+	const year = new Date().getFullYear();
+	footerYear.innerHTML = year;
+};
+
+handleCurrentYear();
+hamburgerBtn.addEventListener('click', handleNav)
+
 const showError = (input,msg) => {
     
     const formBox = input.parentElement;
@@ -78,9 +95,6 @@ btnSend.addEventListener('click', e => {
     checkErrors();
 })
 
-
-
-
 btnClear.addEventListener('click', (e) => {
 	e.preventDefault();
 	[userName, email].forEach((el) => {
@@ -89,22 +103,10 @@ btnClear.addEventListener('click', (e) => {
 	});
 });
 
-const handleNav = () => {
-	navMobile.classList.toggle('active')
-}
-const hideNav = () => {
-	navItems.forEach.addEventListener('click', handleNav)
-}
 
 
 
 
 
-const handleCurrentYear = () => {
-	const year = new Date().getFullYear();
-	footerYear.innerText = year;
-};
 
-handleCurrentYear();
-hamburgerBtn.addEventListener('click', handleNav)
-navItems.forEach.addEventListener('click', hideNav)
+
