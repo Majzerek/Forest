@@ -14,14 +14,14 @@
     <link rel="stylesheet" href="./dist/css/style.min.css">
 </head>
 
-<body>
+<body id="base" data.nav="base" >
     <!-- Navigation -->
     <button class="burger-btn">
     <div class="burger-btn__box ">
         <div class="burger-btn__bars"><i class="ti ti-menu-2"></i></div>
     </div>
 </button>
-<nav class="nav">
+<nav class="nav " >
     <div class="nav__logo"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-christmas-tree"
             width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#656565" fill="#656565"
             stroke-linecap="round" stroke-linejoin="round">
@@ -31,12 +31,13 @@
         </svg>
         <p class="logo">Forest</p>
     </div>
-    <div class="nav__items hide">
-        <a href="#" class="nav__item " id="nav">Home</a>
-        <a href="#aboutus" class="nav__item " id="nav">O nas</a>
-        <a href="#offers" class="nav__item " id="nav">Oferta</a>
-        <a href="contact.html" class="nav__item " id="nav">Kontakt</a>
-    </div>
+    
+    <ul class="nav__list  ">
+        <li><a href="#" class="nav__item "data-nav="home" >Home</a></li>
+       <li> <a href="#aboutus" class="nav__item"data-nav='aboutus' >O nas</a></li>
+        <li><a href="#offers" class="nav__item " data-nav='offers'>Oferta</a></li>
+        <li><a href="contact.html" class="nav__item " data-nav='contact'>Kontakt</a></li>
+    </ul>
 </nav>
 <div class="nav-mobile ">
     <div class="nav-mobile__items ">
@@ -48,7 +49,7 @@
 </div>
     
     <!-- Header -->
-    <header class="header section " id="home">
+    <header class="header section section1" id="home" data-nav="home" >
         <div class="header__box">
             <p class="header__box-text">Forest Group</p>
             <h1 class="header__box-heading">Najpiękniejszy park w Twojej okolicy!</h1>
@@ -60,7 +61,7 @@
 
     <main>
         <!-- Section aboutus -->
-        <section class="aboutus section wrapper white-section" id="aboutus">
+        <section class="aboutus section section2 wrapper white-section" id="aboutus" data-nav="aboutus">
             <div class="aboutus__title title">
                 <h2>O nas</h2>
             </div>
@@ -79,14 +80,14 @@
 
         <!-- Section family -->
 
-        <section class="family section">
+        <section class="family section ">
             <h2>Przygoda dla całej rodziny</h2>
             <div class="family__shadow"></div>
         </section>
 
         <!-- section offers -->
 
-        <section class="offers section wrapper white-section" id="offers">
+        <section class="offers section wrapper white-section section3" id="offers" data-nav="offers">
     
                 <div class="offers__title title">
                     <h2>Oferta</h2>

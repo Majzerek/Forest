@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="./dist/css/style.min.css">
 </head>
 
-<body>
+<body id="base" data.nav="base" >
     <!-- Navigation -->
     <!-- @include 'nav.kit' -->
     
     <!-- Header -->
-    <header class="header section " id="home">
+    <header class="header section section1" id="home" data-nav="home" >
         <div class="header__box">
             <p class="header__box-text">Forest Group</p>
             <h1 class="header__box-heading">Najpiękniejszy park w Twojej okolicy!</h1>
@@ -27,7 +27,7 @@
 
     <main>
         <!-- Section aboutus -->
-        <section class="aboutus section wrapper white-section" id="aboutus">
+        <section class="aboutus section section2 wrapper white-section" id="aboutus" data-nav="aboutus">
             <div class="aboutus__title title">
                 <h2>O nas</h2>
             </div>
@@ -46,14 +46,14 @@
 
         <!-- Section family -->
 
-        <section class="family section">
+        <section class="family section ">
             <h2>Przygoda dla całej rodziny</h2>
             <div class="family__shadow"></div>
         </section>
 
         <!-- section offers -->
 
-        <section class="offers section wrapper white-section" id="offers">
+        <section class="offers section wrapper white-section section3" id="offers" data-nav="offers">
     
                 <div class="offers__title title">
                     <h2>Oferta</h2>

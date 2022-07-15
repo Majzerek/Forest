@@ -4,8 +4,8 @@ document.addEventListener(
 		const footerYear = document.querySelector('#footer-year');
 		const hamburgerBtn = document.querySelector('.ti-menu-2');
 		const navMobile = document.querySelector('.nav-mobile');
-		const navItems = document.querySelectorAll('#nav');
-		const nav = document.querySelector('.nav__items');
+		const navItems = document.querySelector('nav');
+		const nav = document.querySelectorAll('.nav__item');
 		const userName = document.querySelector('#username');
 		const email = document.querySelector('#email');
 		const btnClear = document.querySelector('.clear');
@@ -14,11 +14,42 @@ document.addEventListener(
 		const popup = document.querySelector('.popup');
 		const allSection = document.querySelectorAll('.section');
 		const btnNav = document.querySelector('.burger-btn__bars');
+	
+	
+
+		const options = {
+			// root: null, // vieport default
+			threshold: '0.6' // procent widocznosci
+			// rootMargin: '200px' //margin obniza
+		}
+
+		const observer = new IntersectionObserver(function(entries) {
+			entries.forEach(e => {
+				if(e.isIntersecting) {
+					//changing navbar style on scroll to next section
+					// if(e.target.id !== "base") {
+					// 	navItems.classList.add('nav-')
+					// } else {
+					// 	navItems.classList.remove('nav-')
+					// }
+					// section indicator 
+					nav.forEach(link => {
+						link.classList.remove('nav-black')
+						if(e.target.id === link.dataset.nav) {
+							link.classList.add('nav-black')
+						}
+					})
+				}
+				
+			})
+		}, options)
+		allSection.forEach(section => 
+			observer.observe(section))
 
 		const handleNav = () => {
 			navMobile.classList.toggle('actives');
 			hamburgerBtn.classList.toggle('black-bars-color');
-			navItems.forEach((item) => {
+			nav.forEach((item) => {
 				item.addEventListener('click', () => {
 					navMobile.classList.remove('actives');
 					hamburgerBtn.classList.remove('black-bars-color');
@@ -130,63 +161,6 @@ document.addEventListener(
 			});
 		});
 
-		// grab the sections (targets) and menu_links (triggers)
-		// for menu items to apply active link styles to
-
-		// functions to add and remove the active class from links as appropriate
-		const makeActive = (link) => navItems[link].classList.add('nav-black');
-		const removeActive = (link) => navItems[link].classList.remove('nav-black');
-		const removeAllActive = () =>
-			[...Array(allSection.length).keys()].forEach((link) =>
-				removeActive(link)
-			);
-
-		// change the active link a bit above the actual section
-		// this way it will change as you're approaching the section rather
-		// than waiting until the section has passed the top of the screen
-		const sectionMargin = 200;
-
-		// keep track of the currently active link
-		// use this so as not to change the active link over and over
-		// as the user scrolls but rather only change when it becomes
-		// necessary because the user is in a new section of the page
-		let currentActive = 0;
-
-		// listen for scroll events
-		window.addEventListener('scroll', () => {
-			// check in reverse order so we find the last section
-			// that's present - checking in non-reverse order would
-			// report true for all sections up to and including
-			// the section currently in view
-			//
-			// Data in play:
-			// window.scrollY    - is the current vertical position of the window
-			// sections          - is a list of the dom nodes of the sections of the page
-			//                     [...sections] turns this into an array so we can
-			//                     use array options like reverse() and findIndex()
-			// section.offsetTop - is the vertical offset of the section from the top of the page
-			//
-			// basically this lets us compare each section (by offsetTop) against the
-			// viewport's current position (by window.scrollY) to figure out what section
-			// the user is currently viewing
-			const current =
-				allSection.length -
-				[...sections]
-					.reverse()
-					.findIndex(
-						(section) => window.scrollY >= section.offsetTop - sectionMargin
-					) -
-				1;
-
-			// only if the section has changed
-			// remove active class from all menu links
-			// and then apply it to the link for the current section
-			if (current !== currentActive) {
-				removeAllActive();
-				currentActive = current;
-				makeActive(current);
-			}
-		});
-	},
-	false
-);
+		
+	
+})
