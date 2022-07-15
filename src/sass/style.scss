@@ -95,7 +95,7 @@ body {
 		}
 	}
 }
-.active {
+.actives {
 	transform: translate(-50%, -50%);
 }
 .logo {
@@ -206,7 +206,7 @@ body {
 			padding: 1em;
 			width: 60%;
 			height: 40%;
-			flex-wrap: ;
+			flex-wrap: wrap;
 			h3 {
 				margin-bottom: 0.5em;
 				font-size: 1.5rem;
