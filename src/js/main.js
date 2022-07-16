@@ -161,9 +161,6 @@ document.addEventListener(
 			});
 		});
 
-		//mapgoogle
-		const initMap = () => {
-			
-		}
+
 	
 })
