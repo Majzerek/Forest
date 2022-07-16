@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ForestCompany" content="Site for company named Forest, try to improve ppl 
+    health by contact with nature"/>
     <title>Kontakt</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,12 +32,12 @@
         </svg>
         <p class="logo">Forest</p>
     </div>
-    
-    <ul class="nav__list ">
-        <li><a href="index.html" class="nav__item " id="nav">Home</a></li>
-       <li> <a href="index.html" class="nav__item " id="nav">O nas</a></li>
-        <li><a href="index.html" class="nav__item " id="nav">Oferta</a></li>
-        <li><a href="#" class="nav__item " id="nav">Kontakt</a></li>
+
+    <ul class="nav__list  ">
+        <li><a href="index.html" class="nav__item " data-nav="home">Home</a></li>
+        <li> <a href="index.html" class="nav__item" data-nav='aboutus'>O nas</a></li>
+        <li><a href="index.html" class="nav__item " data-nav='offers'>Oferta</a></li>
+        <li><a href="#" class="nav__item " data-nav='contact'>Kontakt</a></li>
     </ul>
 </nav>
 <div class="nav-mobile ">
@@ -46,18 +48,21 @@
         <a href="#" class="nav__item ">Kontakt</a>
     </div>
 </div>
-    <div class="wrpper ">
-        <div class="contact-bg section "></div>
-        <div class="contact " id="contact">
+
+    <section class="wrpper" id='contact' data-nav='contact'>
+        <div class="contact-bg section" id='contact' data-nav='contact'></div>
+        <div class="contact">
             <div class="contact-title title section white-section">
                 <h1>Kontakt</h1>
             </div>
             <div class="contact-items">
                 <div class="contact-item next">
-                    <p class="icon"><span>Numer Telefonu:</span> <button class=" border"><a class="next"
+                    <p class="icon"><i class="ti ti-phone"></i>
+                        <span>Numer Telefonu:</span> <button class=" border"><a class="next"
                                 href="tel:+48 XXX XXX XXX">+48 XXX XXX XXX</a> </button></p>
-                    <p class="icon"><span>Kontakt E-mail:</span><button class="border"> <a
+                    <p class="icon"><i class="ti ti-mail"></i> <span>Kontakt E-mail:</span><button class="border"> <a
                                 href="mailto:kontakt@forest.com">kontakt@forest.com</a></button></p>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d639.9734931483746!2d19.8927260328653!3d50.088271952776374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a326d015c3b%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1657985644861!5m2!1spl!2spl" width="100%" height="100%" style="border: 3px solid grey;;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
 
@@ -70,13 +75,14 @@
                         <h3>Zostaw nam E-mail!</h3>
 
                         <div class="form-box" id="formbox">
-                            <label for="username">Imię:</label>
+                            <label for="username"><i class="ti ti-writing-sign"></i> Imię:</label>
                             <input type="text" id="username" placeholder="Podaj swoje imię!">
                             <p class="error-text">error</p>
                         </div>
 
                         <div class="form-box">
-                            <label for="email">Adres e-mail:</label>
+                            <label for="email"><i class="ti ti-mail-fast"></i>
+                            </i> Adres e-mail:</label>
                             <input type="email" id="email" placeholder="Podaj e-mail">
                             <p class="error-text">error</p>
                         </div>
@@ -94,7 +100,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <footer class="footer">
     <div class="footer__hide">

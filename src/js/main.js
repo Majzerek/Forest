@@ -16,7 +16,7 @@ document.addEventListener(
 		const btnNav = document.querySelector('.burger-btn__bars');
 	
 	
-
+//scroll spy
 		const options = {
 			// root: null, // vieport default
 			threshold: '0.6' // procent widocznosci
@@ -45,7 +45,7 @@ document.addEventListener(
 		}, options)
 		allSection.forEach(section => 
 			observer.observe(section))
-
+//navigation
 		const handleNav = () => {
 			navMobile.classList.toggle('actives');
 			hamburgerBtn.classList.toggle('black-bars-color');
@@ -79,11 +79,11 @@ document.addEventListener(
 				}
 			});
 		};
-
+//footer year
 		handleCurrentYear();
 		hamburgerBtn.addEventListener('click', handleNav);
 		window.addEventListener('scroll', sauron);
-
+//contact form
 		const showError = (input, msg) => {
 			const formBox = input.parentElement;
 			const errorMsg = formBox.querySelector('.error-text');
@@ -161,6 +161,9 @@ document.addEventListener(
 			});
 		});
 
-		
+		//mapgoogle
+		const initMap = () => {
+			
+		}
 	
 })
